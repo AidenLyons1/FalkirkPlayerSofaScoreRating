@@ -171,10 +171,7 @@ class PlayerRatings:
         }
 
         # Render the chart using st_echarts
-        st_echarts(
-            options=options,
-            height=f"{chart_height}px",
-        )
+        st_echarts(options=options, height=f"{chart_height}px", theme="dark")
 
 
 def main():
