@@ -171,7 +171,10 @@ class PlayerRatings:
         }
 
         # Render the chart using st_echarts
-        st_echarts(options=options, height=f"{chart_height}px", theme="dark")
+        if theme == "light":
+            st_echarts(options=options, height=f"{chart_height}px", theme="dark")
+        else:
+            st_echarts(options=options, height=f"{chart_height}px")
 
 
 def main():
