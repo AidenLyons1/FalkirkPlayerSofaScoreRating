@@ -80,10 +80,9 @@ class PlayerRatings:
         st.title("Player SofaScore Ratings")
         st.write("By Aiden Lyons")
         st.write("This page upadates automatically, via SofaScore API.")
-        # Detect the current theme (light or dark mode)
-        theme = st.get_option("theme.base")
 
         # Set text color based on the theme
+        background_color = "#0f1116"
         text_color = "white"
 
         # Assuming your DataFrame is already available
@@ -121,6 +120,7 @@ class PlayerRatings:
 
         # ECharts option setup using your football data
         options = {
+            "backgroundColor": background_color,
             "title": {
                 "text": "Player Ratings Over Matches",
                 "textStyle": {"color": text_color},
@@ -171,10 +171,7 @@ class PlayerRatings:
         }
 
         # Render the chart using st_echarts
-        if theme == "light":
-            st_echarts(options=options, height=f"{chart_height}px", theme="dark")
-        else:
-            st_echarts(options=options, height=f"{chart_height}px")
+        st_echarts(options=options, height=f"{chart_height}px")
 
 
 def main():
