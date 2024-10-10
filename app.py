@@ -79,7 +79,7 @@ class PlayerRatings:
     def chart(self, df):
         st.title("Player SofaScore Ratings")
         st.write("By Aiden Lyons")
-        st.write("This page upadates automatically, via SofaScore API.")
+        st.write("This page updates automatically, via SofaScore API.")
 
         # Set text color based on the theme
         background_color = "#0f1116"
