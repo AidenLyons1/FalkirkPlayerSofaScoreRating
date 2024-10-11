@@ -80,6 +80,9 @@ class PlayerRatings:
         st.title("Player SofaScore Ratings")
         st.write("By Aiden Lyons")
         st.write("This page updates automatically, via SofaScore API.")
+        st.write(
+            "Ratings are based from SofaScore system, and are not available for every single match. Those that are available, will be displayed here."
+        )
 
         # Set text color based on the theme
         background_color = "#0f1116"
