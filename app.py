@@ -66,9 +66,6 @@ class PlayerRatings:
             )
             if not player_ratings:
                 continue
-            # print('='*90)
-            # print(match)
-            # print(player_ratings)
             match_date = datetime.fromtimestamp(matches[match][2]).strftime("%d/%m/%y")
             column_title = self.format_column_title(match, match_date)
             data[column_title] = player_ratings
@@ -84,29 +81,21 @@ class PlayerRatings:
             "Ratings are based from SofaScore system, and are not available for every single match. Those that are available, will be displayed here."
         )
 
-        # Set text color based on the theme
         background_color = "#0f1116"
         text_color = "white"
 
-        # Assuming your DataFrame is already available
-        # Replace this with your actual DataFrame object (e.g., ratings_data_filled)
-        player_names = df.index  # Player names as row index
-        match_dates = df.columns  # Match dates or match labels
+        player_names = df.index
+        match_dates = df.columns
 
-        # Extract just the team names by splitting before the first number (date)
         match_labels = [re.split(r"\d", match)[0].strip() for match in match_dates]
 
-        # Multi-select dropdown to choose players
         selected_players = st.multiselect(
             "Select players to display", options=player_names, default="Nicky Hogarth"
         )
 
-        # Filter the DataFrame based on selected players
         filtered_data = df.loc[selected_players]
-
         chart_height = 400 + len(selected_players) * 20
 
-        # Convert DataFrame into series format for ECharts
         series_data = []
         for i, player in enumerate(filtered_data.index):
             series_data.append(
@@ -121,7 +110,6 @@ class PlayerRatings:
                 }
             )
 
-        # ECharts option setup using your football data
         options = {
             "backgroundColor": background_color,
             "title": {
